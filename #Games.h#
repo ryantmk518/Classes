@@ -1,0 +1,15 @@
+#include <iostream>
+#include <string.h>
+
+using namespace std;
+
+class Games {
+ public:
+  Game()
+  char* getTitle();
+  int* getYear();
+  char* getPublisher();
+  int* getType();
+  char* getRating();
+ private:
+  char* publisher[99];

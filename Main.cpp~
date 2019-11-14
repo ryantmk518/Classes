@@ -1,0 +1,91 @@
+#include <iostream>
+#include <string.h>
+#include "Media.h"
+#include "Movies.h"
+#include "Games.h"
+#include "Music.h"
+#include <vector>
+
+using namespace std;
+
+
+void add(vector<Media*>* medList);
+void search(vector<Media*>* medList);
+void del(vector<Media*>* medList);
+void print(vector<Media*>* medList);
+
+int main() {
+  vector<Media*> List;
+  vector<Media*>* medList = &List;
+  bool start = true;
+  while (start == true) {
+    char input[10];
+    cout<<"Enter a command" << endl;
+    cin >> input;
+    cin.get();
+    if (strcmp(input, "ADD") == 0) {
+      add(medList);
+    }
+    if (strcmp(input, "SEARCH") == 0) {
+      search(medList);
+    }
+    if (strcmp(input, "DELETE") == 0) {
+      del(medList);
+    }
+  }
+}
+
+void add(vector<Media*>* medList) {
+  cout << "Enter media type" << endl;
+  char media[99];
+  cin >> media;
+  if (strcmp(media, "GAME") == 0) {
+    Games* game = new Games();
+    cout << "Enter the title" << endl;
+    cin.get(game -> getTitle(),99);
+    cout << "Enter the year" << endl;
+    cin >> *game -> getYear();
+    cout << "Enter the publisher" << endl;
+    cin.get(game->getPublisher(), 99);
+    cout << "Enter the rating" << endl;
+    cin.get(game->getRating(),99);
+    medList->push_back(game);
+  }
+  if (strcmp(media, "MUSIC")) {
+    Music* music = new Music();
+    cout << "Enter title" << endl;
+    cin.get(music->getTitle(),99);
+    cout << "Enter artist" << endl;
+    cin.get(music->getArtist(),99);
+    cout << "Enter year" << endl;
+    cin >> *music -> getYear();
+    cout << "Enter duration" << endl;
+    cin >> *music->getDuration();
+    cout << "Enter publisher" << endl;
+    cin.get(music->getPublisher(),99);
+    medList->push_back(music);
+  }
+  if (strcmp(media, "MOVIES")) {
+    Movies* movie = new Movies();
+    cout << "Enter title" << endl;
+    cin.get(movie->getTitle(),99);
+    cout << "Enter director" << endl;
+    cin.get(movie->getDirector(), 99);
+    cout << "Enter year" << endl;
+    cin >> *movie->getYear();
+    cout << "Enter duration" << endl;
+    cin >> *movie->getDuration();
+    cout << "Enter rating" << endl;
+    cin.get(movie->getRating(), 99);
+    medList->push_back(movie);
+  }
+}
+
+void search(vector<Media*>* medList) {
+
+}
+
+void del(vector<Media*>* medList) {
+
+}
+

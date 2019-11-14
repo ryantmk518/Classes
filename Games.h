@@ -1,0 +1,22 @@
+#ifndef GAMES_H
+#define GAMES_H
+#include <iostream>
+#include <string.h>
+#include "Media.h"
+
+//Games header
+
+using namespace std;
+
+class Games:public Media {
+ public:
+  Games();
+  virtual int getType();
+  char* getPublisher();
+  char* getRating();
+ private:
+  char publisher[99];
+  char rating[99];
+};
+
+#endif
